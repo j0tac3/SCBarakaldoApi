@@ -19,6 +19,17 @@ namespace SCBarakaldoAPI.Controllers
             _usuarioService = usuarioService;
         }
 
+        [HttpGet("prueba")]
+        public async Task<ActionResult<Usuario>> GetByUserNamePassword()
+        {
+            var usuario = new Usuario();
+            usuario.Nombre = "Prueba";
+            if (usuario == null)
+                return NotFound();
+
+            return usuario;
+        }
+
         [HttpGet]
         public async Task<ActionResult<List<Usuario>>> Get()
         {
