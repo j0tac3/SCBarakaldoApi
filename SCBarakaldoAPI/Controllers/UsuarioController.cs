@@ -33,11 +33,12 @@ namespace SCBarakaldoAPI.Controllers
         [HttpGet("obtener")]
         public async Task<ActionResult<List<Usuario>>> Get()
         {
-            var listUsuario = await _usuarioService.Obtener();
-            if (listUsuario.Count < 0)
+            var usuario = new Usuario();
+            usuario.Nombre = "Prueba";
+            if (usuario == null)
                 return NotFound();
 
-            return Ok(listUsuario);
+            return usuario;
         }
 
         [HttpGet("login")]
