@@ -22,7 +22,7 @@ namespace SCBarakaldoAPI
         {
             //services.AddDbContext<SCBarakaldoContext>(opciones => opciones.UseSqlServer(Configuration.GetConnectionString("connectionUser")));
             services.AddEntityFrameworkNpgsql().AddDbContext<SCBarakaldoContext>(options => 
-                options.UseNpgsql(Configuration.GetConnectionString("connectionUser"))
+                options.UseNpgsql(Configuration.GetConnectionString("APISCBarakaldo"))
             );
             services.AddControllers();
             services.AddTransient<UsuarioService, UsuarioService>();
