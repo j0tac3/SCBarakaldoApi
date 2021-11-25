@@ -25,7 +25,7 @@ namespace SCBarakaldoAPI.Controllers
         {
             var listUsuario = await _eventoService.Obtener();
             if (listUsuario.Count < 0)
-                return NotFound();
+                return BadRequest("El evento no ha podido ser añadido");
 
             return Ok(listUsuario);
         }
@@ -35,7 +35,7 @@ namespace SCBarakaldoAPI.Controllers
         {
             var usuario = await _eventoService.ObtenerEvento(usuarioID);
             if (usuario == null)
-                return NotFound();
+                return BadRequest("El evento no ha podido ser añadido");
 
             return usuario;
         }
@@ -47,7 +47,7 @@ namespace SCBarakaldoAPI.Controllers
             if (resultado != null)
                 return Ok(resultado);
             else
-                return BadRequest("El usuario no ha podido ser añadido");
+                return BadRequest("El evento no ha podido ser añadido");
         }
 
         [HttpPut]
@@ -58,7 +58,7 @@ namespace SCBarakaldoAPI.Controllers
             if (resultado != null)
                 return Ok(resultado);
             else
-                return BadRequest("El usuario no ha podido ser editado");
+                return BadRequest("El evento no ha podido ser añadido");
         }
 
         [HttpDelete("{id}")]
@@ -69,8 +69,7 @@ namespace SCBarakaldoAPI.Controllers
             if (resultado != null)
                 return Ok(resultado);
             else
-                return BadRequest("El usuario no ha podido ser eliminado");
-
+                return BadRequest("El evento no ha podido ser añadido");
         }
     }
 }

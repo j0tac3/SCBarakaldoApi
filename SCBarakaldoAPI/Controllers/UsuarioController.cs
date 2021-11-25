@@ -25,7 +25,7 @@ namespace SCBarakaldoAPI.Controllers
             var usuario = new Usuario();
             usuario.Nombre = "Prueba";
             if (usuario == null)
-                return NotFound();
+                return BadRequest("El usuario no ha podido ser añadido");
 
             return usuario;
         }
@@ -35,7 +35,7 @@ namespace SCBarakaldoAPI.Controllers
         {
             var listUsuario = await _usuarioService.Obtener();
             if (listUsuario.Count < 0)
-                return NotFound();
+                return BadRequest("El usuario no ha podido ser añadido");
 
             return Ok(listUsuario);
         }
@@ -45,7 +45,7 @@ namespace SCBarakaldoAPI.Controllers
         {
             var usuario = await _usuarioService.ObtenerUsuario(usuarioID);
             if (usuario == null)
-                return NotFound();
+                return BadRequest("El usuario no ha podido ser añadido");
 
             return usuario;
         }
