@@ -27,9 +27,10 @@ namespace SCBarakaldoAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<SCBarakaldoContext>(opciones => opciones.UseSqlServer(Configuration.GetConnectionString("connectionUser")));
-            services.AddTransient<UsuarioService, UsuarioService>();
+            //services.AddDbContext<SCBarakaldoContext>(opciones => opciones.UseSqlServer(Configuration.GetConnectionString("connectionUser")));
             services.AddControllers();
+            services.AddTransient<UsuarioService, UsuarioService>();
+            services.AddEntityFrameworkNpgsql().AddDbContext<SCBarakaldoContext>(options => options.UseNpgsql(Configuration.GetConnectionString("connectionUser")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
