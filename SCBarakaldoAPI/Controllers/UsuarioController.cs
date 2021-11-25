@@ -31,7 +31,7 @@ namespace SCBarakaldoAPI.Controllers
         }
 
         [HttpGet("obtener")]
-        public async Task<ActionResult<List<Usuario>>> Get()
+        public async Task<ActionResult<Usuario>> Get()
         {
             var usuario = new Usuario();
             usuario.Nombre = "Prueba";
