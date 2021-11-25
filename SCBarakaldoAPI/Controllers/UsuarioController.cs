@@ -30,7 +30,7 @@ namespace SCBarakaldoAPI.Controllers
             return usuario;
         }
 
-        [HttpGet]
+        [HttpGet("obtener")]
         public async Task<ActionResult<List<Usuario>>> Get()
         {
             var listUsuario = await _usuarioService.Obtener();
